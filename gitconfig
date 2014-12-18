@@ -1,0 +1,14 @@
+[user]
+	name = whopper-sculder
+	email = wjhopper510@gmail.com
+[push]
+	default = simple
+[alias]
+	full-hist = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) -%C(reset)%C(bold green)%d%C(reset) %C(bold white)%s%C(reset)' --all
+	hist = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) -%C(reset)%C(bold green)%d%C(reset) %C(bold white)%s%C(reset)'
+	gs = git status
+[diff]
+	tool = meld
+	external = meld
+[merge]
+	tool = meld
