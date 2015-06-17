@@ -8,4 +8,5 @@
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
     ~/.bash_aliases: bash_aliases
+    ~/.ssh/config: ssh_config
 - shell: [] 

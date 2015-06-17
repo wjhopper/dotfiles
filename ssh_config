@@ -1,0 +1,24 @@
+Host boserv
+	HostName boserv.local
+	User will
+	IdentityFile /home/will/.ssh/boserv_rsa
+Host hopperlab
+	HostName hopperlab.com
+	User will
+	IdentityFile /home/will/.ssh/boserv_rsa
+host labserver
+	HostName 128.119.130.31
+	User cemnl-cmap
+	IdentityFile /home/will/.ssh/CC9_rsa
+host github
+	Hostname github.com
+	User git
+	IdentityFile /home/will/.ssh/id_rsa_github	
+host umass
+	Hostname webadmin.oit.umass.edu
+	User whopper	
+host gist
+	Hostname gist.github.com
+	User git
+	IdentityFile /home/will/.ssh/id_rsa_github
+

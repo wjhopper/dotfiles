@@ -28,6 +28,8 @@ q <- function (save="no", ...) {
   df
 } 
 
+.env.is.installed <- function(mypkg) {is.element(mypkg, installed.packages()[,1]) }
+
 .env$getMyPath <- function() {
 #initial.options <- commandArgs(trailingOnly = FALSE)
 #file.arg.name <- "--file="
@@ -56,7 +58,27 @@ return(PATH)
 #whereFrom=substr(whereFrom,1,pathnameLength-1)
 #print(whereFrom) # or "setwd(whereFrom)" to set the working directory
 }
+library(ggplot2, quietly=TRUE)
+library(grid, quietly=TRUE)
+.env$mytheme <- theme_grey() + theme(axis.title.x=element_text(size=rel(2),vjust=-.65),
+                                     axis.title.y=element_text(size=rel(2),vjust=1.5),
+                                     legend.title = element_text(size=rel(1.6)),
+                                     legend.text = element_text(size=rel(1.35)),
+                                     axis.text.x = element_text(size=rel(2)),
+                                     axis.text.y = element_text(size=rel(2)),
+                                     axis.ticks.x = element_blank(),
+                                     plot.title = element_text(size=24))                       
 
+.env$pres_theme <- theme_grey() + theme(axis.title.x=element_text(size=rel(3),vjust=-.5),
+                                     axis.title.y=element_text(size=rel(3),vjust=1.5),
+                                     legend.title = element_text(size=rel(3)),
+                                     legend.text = element_text(size=rel(3)),
+                                     axis.text.x = element_text(size=rel(3)),
+                                     axis.text.y = element_text(size=rel(3)),
+                                     axis.ticks.x = element_blank(),
+                                     plot.title = element_text(size=36),
+                                     legend.key.height=unit(2,"line"),
+                                     legend.key.width=unit(2,"line"))
 attach(.env)
 
 message("\n*** Successfully loaded .Rprofile ***\n")
