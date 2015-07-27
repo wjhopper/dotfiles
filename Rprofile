@@ -30,6 +30,10 @@ q <- function (save="no", ...) {
 
 .env.is.installed <- function(mypkg) {is.element(mypkg, installed.packages()[,1]) }
 
+.env$strSort <- function(x,splitter) {
+  sapply(lapply(strsplit(x,splitter,fixed = TRUE), sort), paste, collapse=".")
+}
+
 .env$getMyPath <- function() {
 #initial.options <- commandArgs(trailingOnly = FALSE)
 #file.arg.name <- "--file="
@@ -72,7 +76,7 @@ library(grid, quietly=TRUE)
 .env$pres_theme <- theme_grey() + theme(axis.title.x=element_text(size=rel(3),vjust=-.5),
                                      axis.title.y=element_text(size=rel(3),vjust=1.5),
                                      legend.title = element_text(size=rel(3)),
-                                     legend.text = element_text(size=rel(3)),
+                                    legend.text = element_text(size=rel(3)),
                                      axis.text.x = element_text(size=rel(3)),
                                      axis.text.y = element_text(size=rel(3)),
                                      axis.ticks.x = element_blank(),
