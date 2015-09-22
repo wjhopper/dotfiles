@@ -9,4 +9,5 @@
     ~/.bash_logout: bash_logout
     ~/.bash_aliases: bash_aliases
     ~/.ssh/config: ssh_config
-- shell: [] 
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
