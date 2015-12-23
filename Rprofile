@@ -3,10 +3,17 @@ local({r <- getOption("repos")
       options(repos=r)})
 
 if(.Platform$OS.type == "unix") {
-  Sys.setenv("R_HISTFILE" = file.path(Sys.getenv("HOME"), ".Rhistory"))
+  home <- Sys.getenv("HOME")
 }   else if (.Platform$OS.type == "windows") {
-  Sys.setenv("R_HISTFILE" = file.path(Sys.getenv("USERPROFILE"), ".Rhistory"))
+  home <- Sys.getenv("USERPROFILE")
 }
+
+Sys.setenv("R_HISTFILE" = file.path(home, ".Rhistory"))
+Rlibraries <- file.path(home,"R","common_lib")
+if (!dir.exists(Rlibraries)) {
+  dir.create(Rlibraries)
+}
+.libPaths(c(Rlibraries,.libPaths()))
 
 options(stringsAsFactors=FALSE)
 options(max.print=100)
@@ -32,7 +39,7 @@ q <- function (save="no", ...) {
   id <- sapply(df, is.factor)
   df[id] <- lapply(df[id], as.character)
   df
-} 
+}
 
 attach(.env)
 
