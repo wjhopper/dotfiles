@@ -21,4 +21,7 @@ host gist
 	Hostname gist.github.com
 	User git
 	IdentityFile /home/will/.ssh/id_rsa_github
-
+host HPLAB-git
+	Hostname git.hopperlab.com
+	User will
+	IdentityFile /home/will/.ssh/boserv_rsa
