@@ -4,6 +4,7 @@
     ~/.xsessionrc: xsessionrc
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
+    ~/.git-sh-prompt: git-sh-prompt
     ~/.Rprofile: Rprofile
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
