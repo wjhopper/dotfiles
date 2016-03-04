@@ -9,11 +9,11 @@ if(.Platform$OS.type == "unix") {
 }
 
 Sys.setenv("R_HISTFILE" = file.path(home, ".Rhistory"))
-Rlibraries <- file.path(home,"R","common_lib")
-if (!dir.exists(Rlibraries)) {
-  dir.create(Rlibraries)
+.Rlibraries <- file.path(home,"R","common_lib")
+if (!dir.exists(.Rlibraries)) {
+  dir.create(.Rlibraries)
 }
-.libPaths(c(Rlibraries,.libPaths()))
+.libPaths(c(.Rlibraries, .libPaths()))
 
 options(stringsAsFactors=FALSE)
 options(max.print=100)
@@ -22,25 +22,26 @@ options(prompt="> ")
 options(continue="... +  ")
 options(width = 80)
 
-q <- function (save="no", ...) {
+.localenv <- new.env()
+
+.localenv$q <- function (save="no", ...) {
   quit(save=save, ...)
 }
-
-
-.env <- new.env()
-
-.env$unfactor <- function(df){
+.localenv$unfactor <- function(df){
   id <- sapply(df, is.factor)
   df[id] <- lapply(df[id], as.character)
   df
 }
 
-.env$refactor <- function(df){
+.localenv$refactor <- function(df){
   id <- sapply(df, is.factor)
   df[id] <- lapply(df[id], as.character)
   df
 }
 
-attach(.env)
+.localenv$home <- home
+rm(home)
 
-message("\n*** Successfully loaded .Rprofile ***\n")
+suppressMessages(attach(.localenv))
+
+message("\n*** Loaded WhoppeR's .Rprofile ***\n")
