@@ -7,9 +7,10 @@ Host hopperlab
 	User will
 	IdentityFile /home/will/.ssh/boserv_rsa
 host labserver
-	HostName 128.119.130.31
+	HostName 192.168.70.109
 	User cemnl-cmap
 	IdentityFile /home/will/.ssh/CC9_rsa
+	Port 16500
 host github
 	Hostname github.com
 	User git
