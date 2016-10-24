@@ -9,11 +9,6 @@ if(.Platform$OS.type == "unix") {
 }
 
 Sys.setenv("R_HISTFILE" = file.path(home, ".Rhistory"))
-.Rlibraries <- file.path(home,"R","common_lib")
-if (!dir.exists(.Rlibraries)) {
-  dir.create(.Rlibraries)
-}
-.libPaths(c(.Rlibraries, .libPaths()))
 
 options(stringsAsFactors=FALSE)
 options(max.print=100)
